@@ -6,7 +6,7 @@ from  django.contrib.auth import hashers
 from src.serializers.user import UserSerializer
 from src.models.user import User
 class UserAuthentication(APIView):
-    # create token
+    # đăng nhập
     def post(self,request):
         username = request.data['username']
         password = request.data['password']
@@ -28,9 +28,5 @@ class UserAuthentication(APIView):
 
 
 
-    # fresh token
-
-    def get(self, request):
-        return Response({'user':'phong'})
 
 

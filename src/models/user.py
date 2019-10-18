@@ -3,9 +3,17 @@ from django.db import models
 class User(models.Model):
     username = models.CharField(max_length=200,unique=True)
     password = models.CharField(max_length=256)
+    code = models.CharField(max_length=200)
+    full_name = models.TextField()
     role = models.IntegerField(default=1)
+
+class Admin(models.Model):
+    username = models.CharField(max_length=200, unique=True)
+    password = models.CharField(max_length=256)
+
 class Exam(models.Model):
     name = models.TextField()
+    status = models.BooleanField(default=False)
 
 class Room(models.Model):
     name = models.IntegerField()

@@ -101,23 +101,22 @@ WSGI_APPLICATION = 'ExamReg.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
 
         'ENGINE': 'django.db.backends.mysql',
         # MySQL database host ip.
-        'HOST': '127.0.0.1',
+        'HOST': 'eu-cdbr-west-02.cleardb.net',
         # port number.
         'PORT': '3306',
         # database name.
-        'NAME': 'examreg',
+        'NAME': 'heroku_1db272cc761c12e',
         # user name.
-        'USER': 'root',
+        'USER': 'b8983759d436ba',
         # password
-        'PASSWORD': '',
+        'PASSWORD': 'eebd4035',
         # connect options
-        'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'", },
+        'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"}
     }
 
 }
