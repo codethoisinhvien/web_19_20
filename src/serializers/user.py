@@ -17,3 +17,8 @@ class UserSerializer(serializers.ModelSerializer):
             role= self.validated_data['role']
         )
         user.save()
+class ListUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id','username','role','code','full_name')
+

@@ -140,7 +140,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 CORS_ORIGIN_ALLOW_ALL = True
-ALLOWED_HOSTS = ['web1920.herokuapp.com']
+ALLOWED_HOSTS = ['web1920.herokuapp.com',"localhost"]
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/

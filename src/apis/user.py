@@ -35,7 +35,7 @@ class User(APIView):
                return Response({"success": False, "message": "Lỗi hệ thống"}, status.HTTP_500_INTERNAL_SERVER_ERROR)
     # lấy thông tin tài khoản
     def get(self, request):
-        return Response({'user': 'phong'})
+        return Response({'user': 'giang'})
     # sửa thông tin tài khoản
     def put(self,request):
         pass

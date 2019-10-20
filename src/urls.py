@@ -17,9 +17,11 @@ Including another URLconf
 from django.urls import path
 from .apis.user_authentication import UserAuthentication
 from .apis.user import User
+from .apis.list_user import ListUser
 from django.conf.urls import url,include
 urlpatterns = [
 
   url(r'authentication',UserAuthentication.as_view(),name='login'),
-  url(r'user',User.as_view(),name='user')
+  url(r'user/',User.as_view(),name='user'),
+  url(r'users/',ListUser.as_view(),name='users')
 ]

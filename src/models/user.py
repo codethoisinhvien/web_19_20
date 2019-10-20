@@ -7,6 +7,8 @@ class User(models.Model):
     full_name = models.TextField()
     role = models.IntegerField(default=1)
 
+
+
 class Admin(models.Model):
     username = models.CharField(max_length=200, unique=True)
     password = models.CharField(max_length=256)
