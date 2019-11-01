@@ -111,11 +111,11 @@ DATABASES = {
                 # port number.
                 'PORT': '3306',
                 # database name.
-                'NAME': 'heroku_1db272cc761c12e',
+                'NAME': 'heroku_8ed305e3ea73bc0',
                 # user name.
-                'USER': 'b8983759d436ba',
+                'USER': 'b28f4a40b48e37',
                 # password
-                'PASSWORD': 'eebd4035',
+                'PASSWORD': 'f492aa48',
         # connect options
         'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",'charset': 'utf8mb4'},
 
