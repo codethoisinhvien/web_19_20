@@ -35,10 +35,12 @@ urlpatterns = [
   url(r'exams/', ListExamAPI.as_view(), name='list_exam'),
 
   path(r'exam-resgister/<int:id>', ExamRegistrantion.as_view(), name='exam-resgister'),
+
   url(r'exam-resgister/', ExamRegistrantion.as_view(), name='exams-resgister'),
   path(r'schedules/', ScheduleAPI.as_view(), name='schedule'),
   path(r'schedules/<int:id>', ScheduleAPI.as_view(), name='schedule'),
   path(r'subjects/', ListSubjectAPI.as_view(), name='list-subject'),
+  path(r'subject/<int:id>', ExamRegistrantion.as_view(), name='subject'),
   path(r'rooms/', ListRoomAPI.as_view(), name='list-room')
 ]
 urlpatterns = format_suffix_patterns(urlpatterns)
