@@ -1,17 +1,13 @@
 from django.db import models
-
+import datetime
 class User(models.Model):
-    username = models.CharField(max_length=200,unique=True)
-    password = models.CharField(max_length=256)
-    code = models.CharField(max_length=200)
+    username = models.CharField(max_length=255,unique=True)
+    password = models.CharField(max_length=255)
+    code = models.CharField(max_length=255)
     full_name = models.TextField()
     role = models.IntegerField(default=1)
 
 
-
-class Admin(models.Model):
-    username = models.CharField(max_length=200, unique=True)
-    password = models.CharField(max_length=256)
 
 class Exam(models.Model):
     name = models.TextField()
@@ -22,26 +18,37 @@ class Room(models.Model):
     location = models.TextField()
     max_student = models.IntegerField()
 class Subject(models.Model):
-    name = models.TextField()
-class ExamSubjectAssignment(models.Model):
-    exam_id = models.ForeignKey(Exam,on_delete=models.CASCADE)
+    name = models.CharField(max_length=255);
+    code = models.CharField(max_length=255,unique=True)
+class Seat (models.Model):
+    name = models.CharField(max_length=255)
+
+class ExamRoomSubject(models.Model):
     subject_id = models.ForeignKey(Subject,on_delete=models.CASCADE)
-    start_time = models.TimeField()
-    end_time = models.TimeField()
+    room_id = models.ForeignKey(Room,on_delete=models.CASCADE)
+    exam_id = models.ForeignKey(Exam,on_delete=models.CASCADE)
+    day =  models.DateField(default=datetime.date.today)
+    time_start= models.TimeField(auto_now=False)
+    time_end  = models.TimeField(auto_now=False)
+    no_of_student = models.IntegerField(default=0)
 
+class ExamUserSubject(models.Model):
+    subject_id = models.ForeignKey(Subject,on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User,on_delete=models.CASCADE)
+    exam_id = models.ForeignKey(Exam,on_delete=models.CASCADE)
+    status = models.BooleanField(default=True)
+    be_register = models.BooleanField(default=True)
 
-class SubjectRoomAssignment(models.Model):
-    subject_id = models.ForeignKey(Subject, on_delete=models.CASCADE)
-    rom_id     = models.ForeignKey(Room, on_delete=models.CASCADE)
+class RoomSeat(models.Model):
+    room_id = models.ForeignKey(Room, on_delete=models.CASCADE)
+    seat_id = models.ForeignKey(Seat, on_delete=models.CASCADE)
+    class Meta:
+      unique_together = (("room_id", "seat_id"))
+class Information(models.Model):
+    user= models.ForeignKey(User, on_delete=models.CASCADE,default ="")
+    schedule = models.ForeignKey(ExamRoomSubject,on_delete=models.CASCADE,default="")
+    seat_room_id= models.ForeignKey(RoomSeat, on_delete=models.CASCADE)
 
-class UserSubject(models.Model):
-    subject_id = models.ForeignKey(Subject, on_delete=models.CASCADE)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-class OrderDetail(models.Model):
-    exam_id = models.ForeignKey(Exam, on_delete=models.CASCADE)
-    subject_id = models.ForeignKey(Subject, on_delete=models.CASCADE)
-    rom_id = models.ForeignKey(Room, on_delete=models.CASCADE)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    seat = models.IntegerField()
-    be_registered = models.BooleanField()
+    class Meta:
 
+        unique_together = (("user", "schedule"))

@@ -106,21 +106,37 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.mysql',
         # MySQL database host ip.
-        'HOST': 'eu-cdbr-west-02.cleardb.net',
+        'HOST': 'localhost',
         # port number.
         'PORT': '3306',
         # database name.
-        'NAME': 'heroku_1db272cc761c12e',
+        'NAME': 'examreg',
         # user name.
-        'USER': 'b8983759d436ba',
+        'USER': 'root',
         # password
-        'PASSWORD': 'eebd4035',
+        'PASSWORD': '',
         # connect options
-        'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"}
+        'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",'charset': 'utf8mb4'},
+
     }
 
 }
-
+# 'default': {
+#
+#         'ENGINE': 'django.db.backends.mysql',
+#         # MySQL database host ip.
+#         'HOST': 'eu-cdbr-west-02.cleardb.net',
+#         # port number.
+#         'PORT': '3306',
+#         # database name.
+#         'NAME': 'heroku_1db272cc761c12e',
+#         # user name.
+#         'USER': 'b8983759d436ba',
+#         # password
+#         'PASSWORD': 'eebd4035',
+#         # connect options
+#         'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"}
+#     }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -155,7 +171,32 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOGGING = {
+    'disable_existing_loggers': False,
+    'version': 1,
+    'handlers': {
+        'console': {
+            # logging handler that outputs log messages to terminal
+            'class': 'logging.StreamHandler',
+            'level': 'DEBUG', # message level to be written to console
+        },
+    },
+    'loggers': {
+        '': {
+            # this sets root level logger to log debug and higher level
+            # logs to console. All other loggers inherit settings from
+            # root level logger.
 
+            'level': 'DEBUG',
+            'propagate': False, # this tells logger to send logging message
+                                # to its parent (will send if set to True)
+        },
+        'django.db': {
+            'level': 'DEBUG',
+            'handlers': ['console', ],
+        },
+    },
+}
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
