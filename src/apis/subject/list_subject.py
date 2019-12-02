@@ -17,7 +17,7 @@ class ListSubjectAPI(APIView):
         if subject_serializer.is_valid():
             try:
              subject_serializer.save()
-             return Response({"success": True, "message": "Tạo môn học thành công "})
+             return Response({"success": True, "message": "Tạo môn học thành công ","subject_id":subject_serializer.data['id']})
             except Exception as e :
 
               return  Response({"success":False,"message":"Tạo môn học thất bại"})

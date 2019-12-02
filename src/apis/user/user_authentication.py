@@ -1,5 +1,6 @@
 from rest_framework.views import APIView,Response
 from src.commons.authentication import IsTest
+from rest_framework.authentication import BasicAuthentication
 from rest_framework_jwt.settings import api_settings
 from  django.contrib.auth import hashers
 
@@ -7,6 +8,7 @@ from src.serializers.user import UserSerializer
 from src.models.user import User
 class UserAuthentication(APIView):
     # đăng nhập
+    #authentication_classes = BasicAuthentication
     def post(self,request):
         username = request.data['username']
         password = request.data['password']

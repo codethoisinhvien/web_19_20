@@ -6,7 +6,7 @@ import  json
 def my_function(apps, schema_editor):
 
 
-            seat = Exam(name='ki thi hoc ki 1',status=True)
+            seat = Exam(name='ABC',status=True)
             seat.save()
 
 class Migration(migrations.Migration):

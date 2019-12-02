@@ -16,6 +16,7 @@ class ScheduleAPI(APIView):
         return Response({"success": True, "schedules": scheduleSerializer.data})
 
     def put(self, request,id):
+        print(request.data)
         scheduleSerializer = ScheduleCreateSerializer(data=request.data)
         if scheduleSerializer.is_valid():
 

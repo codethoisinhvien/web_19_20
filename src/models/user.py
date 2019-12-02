@@ -4,22 +4,22 @@ class User(models.Model):
     username = models.CharField(max_length=255,unique=True)
     password = models.CharField(max_length=255)
     code = models.CharField(max_length=255)
-    full_name = models.TextField()
+    full_name = models.CharField(max_length=255)
     role = models.IntegerField(default=1)
 
 
 
 class Exam(models.Model):
-    name = models.TextField()
+    name = models.CharField(max_length=255,unique=True)
     status = models.BooleanField(default=False)
 
 class Room(models.Model):
-    name = models.IntegerField()
+    name = models.CharField(max_length=255)
     location = models.TextField()
     max_student = models.IntegerField()
 class Subject(models.Model):
-    name = models.CharField(max_length=255);
-    code = models.CharField(max_length=255,unique=True)
+    name = models.CharField(max_length=255,null=False);
+    code = models.CharField(max_length=255,unique=True,)
 class Seat (models.Model):
     name = models.CharField(max_length=255)
 
@@ -38,7 +38,8 @@ class ExamUserSubject(models.Model):
     exam_id = models.ForeignKey(Exam,on_delete=models.CASCADE)
     status = models.BooleanField(default=True)
     be_register = models.BooleanField(default=True)
-
+    class Meta:
+      unique_together = (("subject_id","user_id","exam_id"))
 class RoomSeat(models.Model):
     room_id = models.ForeignKey(Room, on_delete=models.CASCADE)
     seat_id = models.ForeignKey(Seat, on_delete=models.CASCADE)

@@ -7,8 +7,11 @@ import datetime
 
 class ScheduleSerializer(serializers.ModelSerializer):
     exam = serializers.SerializerMethodField('get_exam')
+    exam_id = serializers.SerializerMethodField('get_exam_id')
     room = serializers.SerializerMethodField('get_room')
+    room_id = serializers.SerializerMethodField('get_room_id')
     subject = serializers.SerializerMethodField('get_subject')
+    subject_id = serializers.SerializerMethodField('get_subject_id')
     start_time = serializers.SerializerMethodField('get_start_time')
     end_time = serializers.SerializerMethodField('get_end_time')
     no_of_student = serializers.SerializerMethodField('get_student')
@@ -16,16 +19,26 @@ class ScheduleSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ExamRoomSubject
-        fields = ('id', 'room', 'exam', 'subject', 'start_time', 'end_time', 'no_of_student', 'max_student', 'day')
+        fields = ('id', 'room','room_id', 'exam_id','subject_id','exam', 'subject', 'start_time', 'end_time', 'no_of_student', 'max_student', 'day')
 
     def get_room(self, obj):
         return obj.room_id.name
 
+    def get_room_id(self, obj):
+        return obj.room_id.id
+
+
     def get_exam(self, obj):
         return obj.exam_id.name
 
+    def get_exam_id(self, obj):
+        return obj.exam_id.id
+
     def get_subject(self, obj):
         return obj.subject_id.name
+    def get_subject_id(self, obj):
+        return obj.subject_id.id
+
 
     def get_start_time(self, obj):
         return obj.time_start.strftime('%H:%M:%S')

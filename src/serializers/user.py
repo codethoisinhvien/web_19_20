@@ -17,6 +17,14 @@ class UserSerializer(serializers.ModelSerializer):
             role= self.validated_data['role']
         )
         user.save()
+    def updatePassword(self, id, validated_data):
+        instance = User.objects.get(pk=id)
+        if hashers.SHA1PasswordHasher().verify(validated_data['old_password'],  instance.password):
+          instance.password = hashers.SHA1PasswordHasher().encode(validated_data['new_password'],salt='1123')
+          instance.save()
+        else:
+          raise Exception("Mật khẩu cũ không đúng")
+
 class ListUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User

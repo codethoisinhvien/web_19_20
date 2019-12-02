@@ -46,11 +46,11 @@ INSTALLED_APPS = [
 ]
 
 REST_FRAMEWORK = {
-  'DEFAULT_AUTHENTICATION_CLASSES': (
-
-   'rest_framework.authentication.BasicAuthentication',
-
-  ),
+  # 'DEFAULT_AUTHENTICATION_CLASSES': (
+  #  'rest_framework.authentication.BasicAuthentication',
+  #  #'src.commons.authentication.JsonWebTokenAuthentication',
+  #
+  # ),
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.BasePermission',
         'src.commons.authentication.IsTest',
@@ -65,8 +65,10 @@ JWT_AUTH = {
     'JWT_VERIFY_EXPIRATION' : True,
     'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=3000),
     'JWT_AUTH_HEADER_PREFIX': 'Bearer',
-
+    'JWT_ENCODE_HANDLER': 'src.commons.utils.jwt_encode_handler',
+    'JWT_PAYLOAD_HANDLER':'src.commons.utils.jwt_payload_handler'
 }
+
 MIDDLEWARE = [
 'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -102,20 +104,38 @@ WSGI_APPLICATION = 'ExamReg.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 DATABASES = {
-    'default': {
+    # 'default': {
+    #
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     # MySQL database host ip.
+    #     # MySQL database host ip.
+    #            'HOST': 'eu-cdbr-west-02.cleardb.net',
+    #             # port number.
+    #             'PORT': '3306',
+    #             # database name.
+    #             'NAME': 'heroku_8ed305e3ea73bc0',
+    #             # user name.
+    #             'USER': 'b28f4a40b48e37',
+    #             # password
+    #             'PASSWORD': 'f492aa48',
+    #     # connect options
+    #     'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",'charset': 'utf8mb4'},
+    #
+    # }
+'default': {
 
         'ENGINE': 'django.db.backends.mysql',
         # MySQL database host ip.
         # MySQL database host ip.
-               'HOST': 'eu-cdbr-west-02.cleardb.net',
+               'HOST': 'localhost',
                 # port number.
                 'PORT': '3306',
                 # database name.
-                'NAME': 'heroku_8ed305e3ea73bc0',
+                'NAME': 'examreg',
                 # user name.
-                'USER': 'b28f4a40b48e37',
+                'USER': 'root',
                 # password
-                'PASSWORD': 'f492aa48',
+                'PASSWORD': '',
         # connect options
         'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",'charset': 'utf8mb4'},
 

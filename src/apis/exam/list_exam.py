@@ -23,7 +23,15 @@ class ListExamAPI(APIView):
          b = [{"room":item.room_id.name,"seat":item.seat_id.name} for item in a]
          return Response({'user': b})
 
-     def delete(self,request):
-        pass
+     def post(self, request):
+         print(request.data)
+         exam_serializer=ExamSerializer(data=request.data);
+         if exam_serializer.is_valid():
+             exam_serializer.save()
+             return Response({'success': True,"message":"Tạo kì thi thành công ","exam_id":exam_serializer.data['id']})
+         else:
+             return Response({'success': False,"message":"Tạo kì thi thất bại","error":exam_serializer.errors})
+
+
 
 
