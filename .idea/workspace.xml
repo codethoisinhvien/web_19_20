@@ -2,34 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4873b744-b0db-4cab-ad4d-55e96b7b2e9c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/apis/exam/student_register.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commons/permission.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/migrations/0009_auto_20191024_0918.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/serializers/ListStudentInSchedule.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/serializers/exam_user_subject.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/serializers/student_register.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ExamReg/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ExamReg/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/exam/exam.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/exam/exam.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/exam/exam_registration.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/exam/exam_registration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/exam/list_exam.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/exam/list_exam.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/schedule/schedule.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/schedule/schedule.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/subject/list_subject.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/subject/list_subject.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/subject/subject.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/subject/subject.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/user/list_student_in_subject.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/user/list_student_in_subject.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/user/list_user.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/user/list_user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/user/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/user/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/user/user_authentication.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/user/user_authentication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/user/user_in_subject.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/user/user_in_subject.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/JWTAuthentication.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/schedule/list_student_in_schedule.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/authentication.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/authentication.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fakerdata/user.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/fakerdata/user.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serializers/schedule.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/serializers/schedule.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serializers/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/serializers/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serializers/ListStudentInSchedule.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/serializers/ListStudentInSchedule.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +137,7 @@
       <workItem from="1576048184749" duration="9157000" />
       <workItem from="1576135966452" duration="2003000" />
       <workItem from="1576142412615" duration="6639000" />
-      <workItem from="1576157772912" duration="3947000" />
+      <workItem from="1576157772912" duration="5182000" />
     </task>
     <servers />
   </component>

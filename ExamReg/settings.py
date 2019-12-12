@@ -104,42 +104,42 @@ WSGI_APPLICATION = 'ExamReg.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 DATABASES = {
-    # 'default': {
-    #
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     # MySQL database host ip.
-    #     # MySQL database host ip.
-    #            'HOST': 'eu-cdbr-west-02.cleardb.net',
-    #             # port number.
-    #             'PORT': '3306',
-    #             # database name.
-    #             'NAME': 'heroku_8ed305e3ea73bc0',
-    #             # user name.
-    #             'USER': 'b28f4a40b48e37',
-    #             # password
-    #             'PASSWORD': 'f492aa48',
-    #     # connect options
-    #     'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",'charset': 'utf8mb4'},
-    #
-    # }
-'default': {
+    'default': {
 
         'ENGINE': 'django.db.backends.mysql',
         # MySQL database host ip.
         # MySQL database host ip.
-               'HOST': '127.0.0.1',
+               'HOST': 'eu-cdbr-west-02.cleardb.net',
                 # port number.
                 'PORT': '3306',
                 # database name.
-                'NAME': 'examreg',
+                'NAME': 'heroku_8ed305e3ea73bc0',
                 # user name.
-                'USER': 'root',
+                'USER': 'b28f4a40b48e37',
                 # password
-                'PASSWORD': '',
+                'PASSWORD': 'f492aa48',
         # connect options
         'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",'charset': 'utf8mb4'},
 
     }
+# 'default': {
+#
+#         'ENGINE': 'django.db.backends.mysql',
+#         # MySQL database host ip.
+#         # MySQL database host ip.
+#                'HOST': '127.0.0.1',
+#                 # port number.
+#                 'PORT': '3306',
+#                 # database name.
+#                 'NAME': 'examreg',
+#                 # user name.
+#                 'USER': 'root',
+#                 # password
+#                 'PASSWORD': '',
+#         # connect options
+#         'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",'charset': 'utf8mb4'},
+#
+#     }
 
 }
 # 'default': {

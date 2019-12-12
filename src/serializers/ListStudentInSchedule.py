@@ -11,7 +11,7 @@ class ListStudentInScheduleSerializer(serializers.ModelSerializer):
 
     def get_code(self, obj):
         return obj.user.code
-
+# nguyentruonggiang08
     def get_full_name(self, obj):
         return obj.user.full_name
 
