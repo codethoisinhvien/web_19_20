@@ -11,15 +11,15 @@ class ExamRegistrantion(APIView):
 
     def get(self, request):
         # get  cavschdule
-        a = ExamUserSubject.objects.filter(Q(be_register=True) & Q(user_id=1) & Q(exam_id=1))
+        a = ExamUserSubject.objects.filter(Q(be_register=True) & Q(user_id=10) & Q(exam_id=1))
         b = ExamUserSubjecterializer(a, many=True)
         # //
-        c = ExamUserSubject.objects.filter(Q(user_id=1) & Q(status=False))
+        c = ExamUserSubject.objects.filter(Q(user_id=10) & Q(status=False))
         d = ExamUserSubjecterializer(c, many=True)
-        return Response({"success": True, 'can_schedule': b.data, "your_schedule": d.data})
+        return Response({"success": True, 'schedule': b.data,})
     def post(self, request):
 
-        information_student_exam = InformationStudentExam(data={'user_id':1,"schedule_id":request.data['schedule_id']})
+        information_student_exam = InformationStudentExam(data={'user_id':10,"schedule_id":request.data['schedule_id']})
         if information_student_exam.is_valid():
             try:
               information_student_exam.save()
@@ -47,7 +47,7 @@ class ExamRegistrantion(APIView):
         # student_schedule.status = True
         # student_schedule.save()
         print(id)
-        information_student_exam = InformationStudentExam(data={"user_id":1,"schedule_id":id},)
+        information_student_exam = InformationStudentExam(data={"user_id":10,"schedule_id":id},)
         if information_student_exam.is_valid():
             information_student_exam.delete()
             return Response({"success": True, "message": "Hủy đăng kí thành công"})

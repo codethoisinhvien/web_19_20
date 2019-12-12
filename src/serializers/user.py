@@ -25,6 +25,7 @@ class UserSerializer(serializers.ModelSerializer):
         else:
           raise Exception("Mật khẩu cũ không đúng")
 
+
 class ListUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User

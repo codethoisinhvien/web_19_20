@@ -1,47 +1,51 @@
+from django.contrib.auth import hashers
 from rest_framework.views import APIView, Response
-from rest_framework import status
-from src.commons.authentication import IsTest
-from rest_framework_jwt.settings import api_settings
-from src.serializers.user import UserSerializer
-from src.commons.authentication import JsonWebTokenAuthentication
 
+from src.models.user import User
 
 
 class UserApi(APIView):
-    # đăng kí tài khoản
-    def post(self, request):
+    # sưa thong tin tai khoan
+    def put(self, request, id=None):
+        print(request.data)
 
-        username = request.data['username']
-        password = request.data['password']
-        print(password)
-        code = request.data['code']
-        full_name = request.data['full_name']
-        role = 1
-
-        user_serializer = UserSerializer(
-            data={"username": username, "password": password, "code": code, "full_name": full_name, "role": 1})
         try:
-            if user_serializer.is_valid():
-                user_serializer.save()
-                return Response({"success": True, "message": "Đăng kí thành công "}, status.HTTP_200_OK)
-            else:
-                print(user_serializer.errors)
-                return Response({"success": False, "message": user_serializer.errors})
+            user = User.objects.get(pk=id);
+            print(user)
+            user.full_name = request.data['full_name']
+            user.code = request.data['code']
+            user.username = request.data['username']
+            user.role = request.data['role']
+            user.save()
+            return Response({"success": True, "message": "Thay đổi thành cônng"}, )
+
         except Exception as e:
             print(e)
-            return Response({"success": False, "message": "Lỗi hệ thống"})
+            return Response({"success": True, "message": "Thay đổi thất bại"}, )
 
-    # lấy thông tin tài khoản
-    def get(self, request):
-        return Response({'user': 'giang'})
+    #  sưa password
 
-    # sửa thông tin tài khoản
-    def put(self, request):
-        user_serializer = UserSerializer()
+    def patch(self, request, id=None):
+        print(request.data)
+        try:
+            user = User.objects.get(pk=id);
+            user.password = hashers.SHA1PasswordHasher().encode(request.data['password'], salt='1123')
+            user.save()
+            return Response({"success": True, "message": "Thay đổi thành cônng"}, )
 
-        user_serializer.updatePassword(1,{"old_password":"123456787","new_passord":"17200705"})
-        return Response({"success": True, "message": "Thay đổi thành cônng"},)
+        except Exception as e:
+            print(e)
+            return Response({"success": True, "message": "Thay đổi thất bại"}, )
 
     #  xóa tài khoản
-    def delete(self, request):
-        pass
+
+    def delete(self, request, id=None):
+        try:
+            user = User.objects.get(pk=id)
+            print(user)
+            user.delete()
+            return Response({"success": True, "message": "Xóa thành công"}, )
+
+        except Exception as e:
+            print(e)
+            return Response({"success": False, "message": "Xóa thất bại"}, )

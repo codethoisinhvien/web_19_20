@@ -53,7 +53,7 @@ REST_FRAMEWORK = {
   # ),
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.BasePermission',
-        'src.commons.authentication.IsTest',
+
 
     ]
 }
@@ -63,7 +63,7 @@ JWT_AUTH = {
     'JWT_VERIFY_EXPIRATION': True,
     'JWT_ALGORITHM' : 'HS256',
     'JWT_VERIFY_EXPIRATION' : True,
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=3000),
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=30000),
     'JWT_AUTH_HEADER_PREFIX': 'Bearer',
     'JWT_ENCODE_HANDLER': 'src.commons.utils.jwt_encode_handler',
     'JWT_PAYLOAD_HANDLER':'src.commons.utils.jwt_payload_handler'
@@ -127,7 +127,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         # MySQL database host ip.
         # MySQL database host ip.
-               'HOST': 'localhost',
+               'HOST': '127.0.0.1',
                 # port number.
                 'PORT': '3306',
                 # database name.

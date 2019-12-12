@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from rest_framework.views import APIView, Response
 from rest_framework import status
-from src.commons.authentication import IsTest
+
 from rest_framework_jwt.settings import api_settings
 from src.serializers.exam import ExamSerializer
 from src.serializers.seat_room import RoomSeatSerializer
@@ -12,7 +12,10 @@ from src.commons.authentication import JsonWebTokenAuthentication
 class ListExamAPI(APIView):
      #
      def get(self, request):
-        exam = Exam.objects.all()
+        exam_name= request.GET.get('exam')
+        if(exam_name is None):
+            exam_name=''
+        exam = Exam.objects.filter(name__contains=exam_name)
         examSerializer = ExamSerializer(exam,many=True)
         return  Response({"success":True,"exams":examSerializer.data})
 

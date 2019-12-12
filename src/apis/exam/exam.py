@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from rest_framework.views import APIView, Response
 from rest_framework import status
-from src.commons.authentication import IsTest
+
 from rest_framework_jwt.settings import api_settings
 from src.serializers.exam import ExamSerializer
 from src.models.user import Exam

@@ -1,5 +1,5 @@
 from rest_framework.views import APIView,Response
-from src.commons.authentication import IsTest
+
 from rest_framework.authentication import BasicAuthentication
 from rest_framework_jwt.settings import api_settings
 from  django.contrib.auth import hashers
@@ -23,7 +23,7 @@ class UserAuthentication(APIView):
         if hashers.SHA1PasswordHasher().verify(password,user.password):
             user_serializer = UserSerializer(user)
             jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER(user_serializer.data)
-            return Response({"success": True,"token": jwt_encode_handler,"role":user.role,"username":user.username} )
+            return Response({"success": True,"token": jwt_encode_handler,"role":user.role,"username":user.username,"full_name":user.full_name} )
         else:
             return Response({"success": False,"message": "Tài khoản hoặc mật khẩu không đúng"})
 

@@ -8,7 +8,10 @@ from django.db.utils import IntegrityError
 
 class ListSubjectAPI(APIView):
     def get(self,request):
-        subjects =Subject.objects.all()[:10]
+        subject_name = request.GET.get('subject')
+        if (subject_name is None):
+            subject_name = ''
+        subjects =Subject.objects.filter(name__contains=subject_name)
         subject_serializer = SubjectSerializer(subjects,many=True)
         return Response({"success":True,"subjects":subject_serializer.data})
     def post(self,request):

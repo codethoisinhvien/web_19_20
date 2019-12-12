@@ -1,14 +1,18 @@
 # -*- coding: utf-8 -*-
 from rest_framework.views import APIView, Response
 from rest_framework import status
+from src.commons.authentication import JsonWebTokenAuthentication
+from src.commons.permission import IsAdmin
 from src.serializers.schedule import ScheduleSerializer, ScheduleCreateSerializer
 from src.models.user import ExamRoomSubject, Exam, Subject, Room
+
 from django.db.utils import IntegrityError
 
 
 
 class ScheduleAPI(APIView):
-    #
+    # authentication_classes = [JsonWebTokenAuthentication]
+    # permission_classes = [IsAdmin]
     def get(self, request, id=None ):
         schedule = ExamRoomSubject.objects.all().select_related('room_id').select_related('exam_id').select_related(
             'subject_id').order_by("id")

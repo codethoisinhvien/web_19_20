@@ -1,32 +1,29 @@
-from rest_framework.views import APIView, Response
-from rest_framework import status
-from src.commons.authentication import IsTest
-from rest_framework_jwt.settings import api_settings
-from src.serializers.user import UserSerializer
-from src.commons.authentication import JsonWebTokenAuthentication
-from src.serializers.user_subject import ExamUserSubjecSerializer
-from src.models.user import Exam, User, Subject, ExamUserSubject
 from django.db.models import Q
+from rest_framework.views import APIView, Response
+
+from src.models.user import Exam, User, Subject, ExamUserSubject
+from src.serializers.exam_user_subject import ExamUserSubjectInforSerializer
+from src.serializers.user_subject import ExamUserSubjecSerializer
 
 
 class ListUserInSubjectApi(APIView):
     # tạo sinh viên bị cấm thi hoặc không bi cấm thi
     def post(self, request):
 
-
         try:
-            #data = {"code": "17020708", "subject_code": "INT 3306", "exam_name": "Kì thi học kì 1"}
+            # data = {"code": "17020708", "subject_code": "INT 3306", "exam_name": "Kì thi học kì 1"}
 
             exam_id = Exam.objects.get(name=request.data['exam']);
             print(exam_id.name)
             user_id = User.objects.get(code=request.data['code'])
             print(user_id.code)
             subject_id = Subject.objects.get(code=request.data['subject'])
-            be_register=request.data['be_register']
+            be_register = request.data['be_register']
         except Exception as e:
             return Response({'success': False, "message": str(e)})
         exam_user_subject = ExamUserSubjecSerializer(
-            data={"exam_id": exam_id.id, "subject_id": subject_id.id, "user_id": user_id.id, 'be_register': be_register})
+            data={"exam_id": exam_id.id, "subject_id": subject_id.id, "user_id": user_id.id,
+                  'be_register': be_register})
         if exam_user_subject.is_valid():
             try:
                 exam_user_subject.save()
@@ -37,7 +34,16 @@ class ListUserInSubjectApi(APIView):
             return Response({'success': False, "message": exam_user_subject.errors})
 
     def get(self, request):
-        return Response({'user': 'giang'})
+        code = request.GET.get('code')
+        subject = request.GET.get('subject')
+        exam = request.GET.get('exam')
+        print(code, subject, exam)
+        examUserSubject = ExamUserSubject.objects.select_related('user_id').select_related('subject_id').select_related(
+            'exam_id').filter(user_id__code__contains=code,exam_id__name__contains=exam,subject_id__name__contains=subject)
+        a = ExamUserSubjectInforSerializer(examUserSubject, many=True
+                                           )
+
+        return Response({"success": True, "data": a.data})
 
     def put(self, request):
         try:

@@ -1,8 +1,9 @@
+import datetime
+
 from rest_framework import serializers
+
 from src.models.user import ExamRoomSubject, Exam, Room, Subject
 from src.serializers.room import RoomSerializer
-from django.contrib.auth import hashers
-import datetime
 
 
 class ScheduleSerializer(serializers.ModelSerializer):
@@ -19,14 +20,15 @@ class ScheduleSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ExamRoomSubject
-        fields = ('id', 'room','room_id', 'exam_id','subject_id','exam', 'subject', 'start_time', 'end_time', 'no_of_student', 'max_student', 'day')
+        fields = (
+        'id', 'room', 'room_id', 'exam_id', 'subject_id', 'exam', 'subject', 'start_time', 'end_time', 'no_of_student',
+        'max_student', 'day')
 
     def get_room(self, obj):
-        return obj.room_id.name
+        return obj.room_id.name +" - "+obj.room_id.location
 
     def get_room_id(self, obj):
         return obj.room_id.id
-
 
     def get_exam(self, obj):
         return obj.exam_id.name
@@ -36,9 +38,9 @@ class ScheduleSerializer(serializers.ModelSerializer):
 
     def get_subject(self, obj):
         return obj.subject_id.name
+
     def get_subject_id(self, obj):
         return obj.subject_id.id
-
 
     def get_start_time(self, obj):
         return obj.time_start.strftime('%H:%M:%S')
@@ -51,7 +53,6 @@ class ScheduleSerializer(serializers.ModelSerializer):
 
     def get_max_student(self, obj):
         return obj.room_id.max_student
-
 
 
 class ScheduleCreateSerializer(serializers.Serializer):
@@ -98,7 +99,7 @@ class ScheduleSubSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ExamRoomSubject
-        fields = ('id', 'room_id', 'time_start', 'time_end', 'no_of_student','day')
+        fields = ('id', 'room_id', 'time_start', 'time_end', 'no_of_student', 'day')
 
     def get_room(self, obj):
         return RoomSerializer(obj.room_id).data

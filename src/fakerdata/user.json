@@ -5,4 +5,5 @@
 {"username":17020005,"password":17020005,"code":17020710,"full_name":"Tait Gofforth","role":1},
 {"username":17020006,"password":17020006,"code":17020711,"full_name":"Aubert Sibbet","role":1},
 {"username":17020007,"password":17020007,"code":17020712,"full_name":"Amabel Tapin","role":1},
-{"username":17020008,"password":17020008,"code":17020713,"full_name":"Morgun Donnellan","role":1}]
+{"username":17020008,"password":17020008,"code":17020713,"full_name":"Morgun Donnellan","role":1},
+{"username":"admin","password":"admin","code":1,"full_name":"Le dinh thanh","role":2}]
