@@ -1,5 +1,5 @@
 from  rest_framework import  serializers
-from  src.models.user import User
+from  src.models import User
 from  django.contrib.auth import hashers
 
 class UserSerializer(serializers.ModelSerializer):

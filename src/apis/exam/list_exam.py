@@ -5,29 +5,29 @@ from rest_framework import status
 from rest_framework_jwt.settings import api_settings
 from src.serializers.exam import ExamSerializer
 from src.serializers.seat_room import RoomSeatSerializer
-from src.models.user import Exam,RoomSeat
+from src.models import Exam,RoomSeat
 from src.commons.authentication import JsonWebTokenAuthentication
+from src.commons.permission import IsAdmin
 
-
+from rest_framework.decorators import permission_classes
 class ListExamAPI(APIView):
-     #
+     # lấy  danh sách  kì thi
+     authentication_classes = [JsonWebTokenAuthentication]
      def get(self, request):
         exam_name= request.GET.get('exam')
         if(exam_name is None):
             exam_name=''
-        exam = Exam.objects.filter(name__contains=exam_name)
-        examSerializer = ExamSerializer(exam,many=True)
-        return  Response({"success":True,"exams":examSerializer.data})
+        try:
+         exam = Exam.objects.filter(name__contains=exam_name)
+         examSerializer = ExamSerializer(exam,many=True)
+         return  Response({"success":True,"exams":examSerializer.data})
+        except Exception as e :
+          return Response({"success": False, "message": "Có lỗi xảy ra"})
 
-     def put(self, request):
-         a = RoomSeat.objects.filter(room_id=1).select_related('room_id').select_related('seat_id')
-         c = RoomSeatSerializer(a);
-         print(c.data)
-         b = [{"room":item.room_id.name,"seat":item.seat_id.name} for item in a]
-         return Response({'user': b})
-
+     # tao kì thi
+     @permission_classes([IsAdmin])
      def post(self, request):
-         print(request.data)
+
          exam_serializer=ExamSerializer(data=request.data);
          if exam_serializer.is_valid():
              exam_serializer.save()

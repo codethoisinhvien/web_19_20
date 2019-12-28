@@ -2,9 +2,60 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4873b744-b0db-4cab-ad4d-55e96b7b2e9c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/models/exam_user_subject.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/information.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/room.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/room_seat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/subject.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0002_auto_20191024_0008.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0003_auto_20191024_0056.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0004_auto_20191024_0903.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0005_auto_20191024_0918.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0006_auto_20191024_0934.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0007_auto_20191024_0947.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ExamReg/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ExamReg/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serializers/ListStudentInSchedule.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/serializers/ListStudentInSchedule.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/exam/exam.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/exam/exam.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/exam/exam_registration.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/exam/exam_registration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/exam/list_exam.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/exam/list_exam.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/exam/student_register.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/exam/student_register.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/list_room.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/list_room.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/oder_information.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/exam_room_subject.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/schedule/list_student_in_schedule.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/schedule/list_student_in_schedule.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/schedule/schedule.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/schedule/schedule.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/subject/list_subject.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/subject/list_subject.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/subject/subject.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/subject/subject.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/subject_permission.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/user/band_student.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/user/list_student_in_subject.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/user/list_student_in_subject.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/user/list_user.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/user/list_user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/user/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/user/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/user/user_authentication.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/user/user_authentication.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/user/user_in_subject.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/user/user_in_subject.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/authentication.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/authentication.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/permission.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/permission.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fakerdata/subject.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/fakerdata/subject.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/migrations/0003_auto_20191024_0934.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/migrations/0003_auto_20191024_0934.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/migrations/0004_auto_20191024_0903.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/migrations/0004_auto_20191024_0903.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/migrations/0008_auto_20191024_0918.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/migrations/0008_auto_20191024_0918.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/migrations/0009_auto_20191024_0918.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/migrations/0009_auto_20191024_0918.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serializers/ListStudentInSchedule.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/serializers/list_student_in_schedule.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serializers/band_student.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/serializers/band_student.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serializers/exam.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/serializers/exam.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serializers/exam_registrantion.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/serializers/exam_registrantion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serializers/exam_user_subject.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/serializers/exam_user_subject.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serializers/room.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/serializers/room.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serializers/schedule.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/serializers/schedule.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serializers/seat_room.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/serializers/seat_room.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serializers/student_register.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/serializers/student_register.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serializers/subject.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/serializers/subject.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serializers/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/serializers/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serializers/user_subject.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/serializers/user_subject.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +85,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../web_19_20" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -44,19 +95,19 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\code\web\ExamReg\src\apis\subject" />
-      <recent name="F:\code\web\ExamReg\src\apis\exam" />
-      <recent name="F:\code\web\ExamReg\src\apis\user" />
-      <recent name="F:\code\web\ExamReg\src\apis\schedule" />
-      <recent name="F:\code\web\ExamReg\src" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/migrations" />
       <recent name="F:\code\web\ExamReg\src\migrations" />
       <recent name="F:\code\web\ExamReg" />
       <recent name="F:\code\web\ExamReg\src\fakerdata" />
       <recent name="F:\code\web\ExamReg\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/models" />
+      <recent name="F:\code\web\ExamReg\src\apis\subject" />
+      <recent name="F:\code\web\ExamReg\src\apis\exam" />
+      <recent name="F:\code\web\ExamReg\src\apis\user" />
+      <recent name="F:\code\web\ExamReg\src\apis\schedule" />
     </key>
   </component>
   <component name="RunManager">
@@ -137,7 +188,15 @@
       <workItem from="1576048184749" duration="9157000" />
       <workItem from="1576135966452" duration="2003000" />
       <workItem from="1576142412615" duration="6639000" />
-      <workItem from="1576157772912" duration="5182000" />
+      <workItem from="1576157772912" duration="7194000" />
+      <workItem from="1576299939771" duration="4580000" />
+      <workItem from="1576376169777" duration="14266000" />
+      <workItem from="1576470779589" duration="633000" />
+      <workItem from="1576587027685" duration="5000" />
+      <workItem from="1577286129241" duration="13150000" />
+      <workItem from="1577333086325" duration="4591000" />
+      <workItem from="1577354122491" duration="39402000" />
+      <workItem from="1577493741939" duration="5852000" />
     </task>
     <servers />
   </component>
@@ -171,14 +230,14 @@
       <screen x="0" y="0" width="1366" height="736" />
     </state>
     <state x="388" y="173" width="579" height="397" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.736@0.0.1366.736" timestamp="1576079146188" />
-    <state x="460" y="115" width="424" height="520" key="FileChooserDialogImpl" timestamp="1575862070565">
+    <state x="460" y="115" width="424" height="520" key="FileChooserDialogImpl" timestamp="1577493931357">
       <screen x="0" y="0" width="1366" height="736" />
     </state>
-    <state x="460" y="115" width="424" height="520" key="FileChooserDialogImpl/0.0.1366.736@0.0.1366.736" timestamp="1575862070565" />
-    <state x="339" y="197" key="com.intellij.ide.util.TipDialog" timestamp="1576142413907">
+    <state x="460" y="115" width="424" height="520" key="FileChooserDialogImpl/0.0.1366.736@0.0.1366.736" timestamp="1577493931357" />
+    <state x="339" y="197" key="com.intellij.ide.util.TipDialog" timestamp="1577514828971">
       <screen x="0" y="0" width="1366" height="736" />
     </state>
-    <state x="339" y="197" key="com.intellij.ide.util.TipDialog/0.0.1366.736@0.0.1366.736" timestamp="1576142413907" />
+    <state x="339" y="197" key="com.intellij.ide.util.TipDialog/0.0.1366.736@0.0.1366.736" timestamp="1577514828971" />
     <state x="339" y="225" key="com.intellij.ide.util.TipDialog/0.27.1366.741@0.27.1366.741" timestamp="1575402289115" />
   </component>
   <component name="XDebuggerManager">
@@ -195,14 +254,14 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/apis/exam/exam_registration.py</url>
-          <line>1</line>
-          <option name="timeStamp" value="3" />
+          <url>file://$PROJECT_DIR$/src/serializers/schedule.py</url>
+          <line>70</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/serializers/schedule.py</url>
-          <line>69</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/src/commons/permission.py</url>
+          <line>8</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

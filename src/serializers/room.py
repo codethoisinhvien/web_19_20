@@ -1,6 +1,7 @@
-from  rest_framework import  serializers
-from  src.models.user import Room
-from  django.contrib.auth import hashers
+from rest_framework import serializers
+
+from src.models import Room
+
 
 class RoomSerializer(serializers.ModelSerializer):
     class Meta:

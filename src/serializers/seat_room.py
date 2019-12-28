@@ -1,5 +1,5 @@
 from  rest_framework import  serializers
-from  src.models.user import Room,Seat,RoomSeat
+from  src.models import Room,Seat,RoomSeat
 from  django.contrib.auth import hashers
 
 class RoomSerializer(serializers.ModelSerializer):

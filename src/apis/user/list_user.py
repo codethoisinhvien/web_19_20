@@ -1,27 +1,23 @@
 from rest_framework.views import APIView, Response
 
+from src.commons.authentication import JsonWebTokenAuthentication
+from src.commons.permission import IsAdmin
 from src.models.user import User
 from src.serializers.user import ListUserSerializer
 from src.serializers.user import UserSerializer
 
 
 class ListUser(APIView):
+    authentication_classes = [JsonWebTokenAuthentication]
+    permission_classes = [IsAdmin]
 
     def post(self, request):
-
-        username = request.data['username']
-        password = request.data['password']
-        print(password)
-        code = request.data['code']
-        full_name = request.data['full_name']
-        role = 1
-
         user_serializer = UserSerializer(
-            data={"username": username, "password": password, "code": code, "full_name": full_name, "role": 1})
+            data=request.data)
         try:
             if user_serializer.is_valid():
                 user_serializer.save()
-                return Response({"success": True, "message": "Đăng kí thành công "}, status.HTTP_200_OK)
+                return Response({"success": True, "message": "Đăng kí thành công "})
             else:
                 print(user_serializer.errors)
                 return Response({"success": False, "message": user_serializer.errors})
@@ -30,20 +26,13 @@ class ListUser(APIView):
             return Response({"success": False, "message": "Lỗi hệ thống"})
 
     def get(self, request):
-        code=request.GET.get('code')
-        print(code)
-        if(code is None):
-            code=''
-        role = 1
-
-        user = User.objects.filter(code__contains=code );
-
+        code = request.GET.get('code')
+        page = request.GET.get('page')
+        print(page)
+        if page is None:
+            page = 0
+        if (code is None):
+            code = ''
+        user = User.objects.filter(code__contains=code).order_by('-id')[int(page) * 10:(int(page) + 1) * 10];
         userSerializer = ListUserSerializer(user, many=True)
         return Response({"success": True, 'users': userSerializer.data})
-
-    def put(self, request):
-        pass
-
-    # xóa mối quan hệ
-    def delete(self, request):
-        pass

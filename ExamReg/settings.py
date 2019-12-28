@@ -10,12 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+import datetime
 import os
-import  datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -27,7 +26,6 @@ SECRET_KEY = '&&h7r(mc#7xiu^jl#0^%sa6f6avq46i&b08q=+k0o#jm!!+*7*'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -46,14 +44,13 @@ INSTALLED_APPS = [
 ]
 
 REST_FRAMEWORK = {
-  # 'DEFAULT_AUTHENTICATION_CLASSES': (
-  #  'rest_framework.authentication.BasicAuthentication',
-  #  #'src.commons.authentication.JsonWebTokenAuthentication',
-  #
-  # ),
+    # 'DEFAULT_AUTHENTICATION_CLASSES': (
+    #  'rest_framework.authentication.BasicAuthentication',
+    #  #'src.commons.authentication.JsonWebTokenAuthentication',
+    #
+    # ),
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.BasePermission',
-
 
     ]
 }
@@ -61,16 +58,16 @@ JWT_AUTH = {
 
     'JWT_VERIFY': True,
     'JWT_VERIFY_EXPIRATION': True,
-    'JWT_ALGORITHM' : 'HS256',
-    'JWT_VERIFY_EXPIRATION' : True,
+    'JWT_ALGORITHM': 'HS256',
+    'JWT_VERIFY_EXPIRATION': True,
     'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=30000),
     'JWT_AUTH_HEADER_PREFIX': 'Bearer',
     'JWT_ENCODE_HANDLER': 'src.commons.utils.jwt_encode_handler',
-    'JWT_PAYLOAD_HANDLER':'src.commons.utils.jwt_payload_handler'
+    'JWT_PAYLOAD_HANDLER': 'src.commons.utils.jwt_payload_handler'
 }
 
 MIDDLEWARE = [
-'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -100,46 +97,45 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ExamReg.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 DATABASES = {
+    # 'default': {
+    #
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     # MySQL database host ip.
+    #     # MySQL database host ip.
+    #            'HOST': 'eu-cdbr-west-02.cleardb.net',
+    #             # port number.
+    #             'PORT': '3306',
+    #             # database name.
+    #             'NAME': 'heroku_8ed305e3ea73bc0',
+    #             # user name.
+    #             'USER': 'b28f4a40b48e37',
+    #             # password
+    #             'PASSWORD': 'f492aa48',
+    #     # connect options
+    #     'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",'charset': 'utf8mb4'},
+    #
+    # }
     'default': {
 
         'ENGINE': 'django.db.backends.mysql',
         # MySQL database host ip.
         # MySQL database host ip.
-               'HOST': 'eu-cdbr-west-02.cleardb.net',
-                # port number.
-                'PORT': '3306',
-                # database name.
-                'NAME': 'heroku_8ed305e3ea73bc0',
-                # user name.
-                'USER': 'b28f4a40b48e37',
-                # password
-                'PASSWORD': 'f492aa48',
+        'HOST': '127.0.0.1',
+        # port number.
+        'PORT': '3306',
+        # database name.
+        'NAME': 'examreg',
+        # user name.
+        'USER': 'root',
+        # password
+        'PASSWORD': '',
         # connect options
-        'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",'charset': 'utf8mb4'},
+        'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'", 'charset': 'utf8mb4'},
 
     }
-# 'default': {
-#
-#         'ENGINE': 'django.db.backends.mysql',
-#         # MySQL database host ip.
-#         # MySQL database host ip.
-#                'HOST': '127.0.0.1',
-#                 # port number.
-#                 'PORT': '3306',
-#                 # database name.
-#                 'NAME': 'examreg',
-#                 # user name.
-#                 'USER': 'root',
-#                 # password
-#                 'PASSWORD': '',
-#         # connect options
-#         'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",'charset': 'utf8mb4'},
-#
-#     }
 
 }
 # 'default': {
@@ -177,7 +173,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 CORS_ORIGIN_ALLOW_ALL = True
-ALLOWED_HOSTS = ['web1920.herokuapp.com',"localhost"]
+ALLOWED_HOSTS = ['web1920.herokuapp.com', "localhost"]
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -199,7 +195,7 @@ LOGGING = {
         'console': {
             # logging handler that outputs log messages to terminal
             'class': 'logging.StreamHandler',
-            'level': 'DEBUG', # message level to be written to console
+            'level': 'DEBUG',  # message level to be written to console
         },
     },
     'loggers': {
@@ -209,8 +205,8 @@ LOGGING = {
             # root level logger.
 
             'level': 'DEBUG',
-            'propagate': False, # this tells logger to send logging message
-                                # to its parent (will send if set to True)
+            'propagate': False,  # this tells logger to send logging message
+            # to its parent (will send if set to True)
         },
         'django.db': {
             'level': 'DEBUG',

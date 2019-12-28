@@ -2,16 +2,15 @@ from django.contrib.auth import hashers
 from rest_framework.views import APIView, Response
 
 from src.models.user import User
-
+from src.commons.authentication import JsonWebTokenAuthentication
 
 class UserApi(APIView):
     # sưa thong tin tai khoan
+    authentication_classes = [JsonWebTokenAuthentication]
     def put(self, request, id=None):
-        print(request.data)
 
         try:
             user = User.objects.get(pk=id);
-            print(user)
             user.full_name = request.data['full_name']
             user.code = request.data['code']
             user.username = request.data['username']

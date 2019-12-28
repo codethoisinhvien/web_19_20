@@ -1,8 +1,9 @@
 import datetime
+from itertools import takewhile
 
 from rest_framework import serializers
 
-from src.models.user import ExamRoomSubject, Exam, Room, Subject
+from src.models import ExamRoomSubject, Exam, Room, Subject
 from src.serializers.room import RoomSerializer
 
 
@@ -67,9 +68,10 @@ class ScheduleCreateSerializer(serializers.Serializer):
         exam_id = Exam.objects.get(pk=self.validated_data['exam_id'])
         room_id = Room.objects.get(pk=self.validated_data['room_id'])
         subject_id = Subject.objects.get(pk=self.validated_data['subject_id'])
-        day = datetime.date.today()
-        time_start = datetime.datetime.now(),
-        time_end = datetime.datetime.now(),
+        day = self.validated_data['day']
+
+        time_start = self.validated_data['start_time']
+        time_end = self.validated_data['end_time']
         print(time_start)
 
         schedule = ExamRoomSubject(
@@ -77,10 +79,11 @@ class ScheduleCreateSerializer(serializers.Serializer):
             room_id=room_id,
             subject_id=subject_id,
             day=day,
-            time_start=datetime.datetime.now(),
-            time_end=datetime.datetime.now()
+            time_start=time_start,
+            time_end=time_end
         )
         schedule.save()
+        return  schedule
 
     def update(self, instance):
         print(self.validated_data)
@@ -96,10 +99,9 @@ class ScheduleCreateSerializer(serializers.Serializer):
 
 class ScheduleSubSerializer(serializers.ModelSerializer):
     room_id = serializers.SerializerMethodField('get_room')
-
     class Meta:
         model = ExamRoomSubject
-        fields = ('id', 'room_id', 'time_start', 'time_end', 'no_of_student', 'day')
+        fields = ('id', 'room_id', 'time_start', 'time_end', 'no_of_student', 'day',)
 
     def get_room(self, obj):
         return RoomSerializer(obj.room_id).data

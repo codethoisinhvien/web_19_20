@@ -14,7 +14,7 @@ class JsonWebTokenAuthentication(BasicAuthentication):
 
          try:
              user = api_settings.JWT_PAYLOAD_HANDLER(hearder)
-             print(user)
+
              return (user, None)
          except Exception as e :
              print(e)
@@ -29,7 +29,8 @@ class JsonWebTokenAuthentication(BasicAuthentication):
          request.
          """
          header = request.META.get('HTTP_AUTHORIZATION')
-
+         if header is None:
+             raise exceptions.AuthenticationFailed('No token')
          if isinstance(header, str):
              # Work around django test client oddness
 

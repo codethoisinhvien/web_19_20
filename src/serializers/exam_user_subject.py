@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from src.models.user import ExamUserSubject
+from src.models import ExamUserSubject
 
 
 class ExamUserSubjectInforSerializer(serializers.ModelSerializer):

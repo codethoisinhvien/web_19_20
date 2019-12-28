@@ -1,13 +1,17 @@
 from rest_framework.views import APIView, Response
 
-from src.models.user import Subject
+from src.commons.authentication import JsonWebTokenAuthentication
+from src.commons.permission import IsAdmin
+from src.models import Subject
 from src.serializers.subject import SubjectSerializer
 
 
 class SubjectAPI(APIView):
+    authentication_classes = [JsonWebTokenAuthentication]
+    permission_classes = [IsAdmin]
 
     def put(self, request, id):
-        data = {"code": "INT 3306 1", "name": "Lập trình hướng đới tượng"}
+
         subject_serializer = SubjectSerializer(data=request.data)
         if subject_serializer.is_valid():
             try:

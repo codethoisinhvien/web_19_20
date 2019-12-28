@@ -1,28 +1,29 @@
 from rest_framework.views import APIView, Response
-from rest_framework import status
-from rest_framework_jwt.settings import api_settings
-from src.serializers.user_subject import ExamUserSubject
-from src.models.user import ExamUserSubject
+
+from src.models import ExamUserSubject
+
 from src.commons.authentication import JsonWebTokenAuthentication
-
-
-
+from src.commons.permission import IsAdmin
 class UserInSubjectApi(APIView):
-    # tạo thí sinh đăng kí
-    def patch(self, request,id):
-      data = {"be_register":"True"}
-      user_subject = ExamUserSubject.objects.get(pk=id);
-      user_subject.be_register= request.data['be_register']
-      user_subject.save()
-      return Response({'success': True, "message": "Thay đổi thành công"})
+    # sua thong tin của sinh vien trong 1 mon thi
+    authentication_classes = [JsonWebTokenAuthentication]
+    permission_classes = [IsAdmin]
+    def patch(self, request, id):
+        try:
+            user_subject = ExamUserSubject.objects.get(pk=id);
+            user_subject.be_register = request.data['be_register']
+            user_subject.save()
+            return Response({'success': True, "message": "Thay đổi thành công"})
+        except Exception as e:
+            print(e)
+        return Response({'success': True, "message": "Thay đổi thất bại"})
 
-    # lấy ra danh sách
-    def get(self, request,id):
-        user_subject = ExamUserSubject.objects.get(pk=id);
-        user_subject.delete()
-        return Response({ 'success':True,"message":"Thành công"})
-
-    def delete(self,request,id):
-        user_subject =ExamUserSubject.objects.get(pk=id)
-        user_subject.delete()
-        return Response({ 'success':True,"message":"Xóa thành công"})
+    # xóa thi sinh 1 môn thi
+    def delete(self, request, id):
+        try:
+            user_subject = ExamUserSubject.objects.get(pk=id)
+            user_subject.delete()
+            return Response({'success': True, "message": "Xóa thành công"})
+        except Exception as e:
+            print(e)
+            return Response({'success': False, "message": "Xóa thất bại "})
